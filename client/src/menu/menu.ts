@@ -1,4 +1,4 @@
-import { states } from "../states/states";
+import { state, states } from "../states/states";
 import { clear, print, printNewLine, prompt } from "../ui/console";
 
 export async function showMenu() {
@@ -17,6 +17,7 @@ export async function showMenu() {
 	if (result === "2") return states.SHOW_USERS;
 	if (result === "3") return states.BROWSE_POSTS;
 	if (result === "4") return states.ADD_USER;
+	if (result === "CABBAGE") return states.CABBAGE;
 
 	return states.UNKNOWN;
 }

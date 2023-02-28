@@ -5,8 +5,11 @@ export function printNewLine() {
 	console.log(EOL); // this imports the correct End-Of-Line for either Windows or Unix
 }
 
-export function print(str: string, newLine = true) {
+export function print(str: string, newLine ?: boolean) {
 	console.log(str);
+	if (newLine === undefined) {
+		newLine = true;
+	}
 	if (newLine === true) {
 		printNewLine();
 	}
