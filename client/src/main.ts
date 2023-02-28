@@ -1,5 +1,6 @@
 import { exit } from "./exit/exit";
 import { showMenu } from "./menu/menu";
+import { addUser } from "./menu/options/add_user/add_user";
 import { browsePosts } from "./menu/options/browse_posts/browse_posts";
 import { sendMessage } from "./menu/options/send_message/send_message";
 import { showAllPosts } from "./menu/options/show_all_posts/show_all_posts";
@@ -45,9 +46,8 @@ async function main() {
 				break;
 			case states.ADD_USER:
 				clear();
-				print("🏗️  This functionality has not been implemented!");
-				await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
-				state.set(states.MENU);
+				const user = await addUser();
+				state.set(user);
 				break;
 			case states.UNKNOWN:
 				clear();
