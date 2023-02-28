@@ -10,4 +10,7 @@ export const states = {
 	ADD_USER: "ADD_USER",
 
 	UNKNOWN: "UNKNOWN",
-};
+	CABBAGE: "CABBAGE"
+} as const;
+
+export type state = keyof typeof states;
