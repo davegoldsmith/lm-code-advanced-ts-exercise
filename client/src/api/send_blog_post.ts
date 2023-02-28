@@ -1,19 +1,17 @@
+import { BlogSubmission } from "../types/blog_submission";
 import { baseUrl } from "./base_url";
 
-export async function sendUserToServer(userName: string) {
+export async function sendBlogPost(blog: BlogSubmission) {
 	try {
-		const result = await fetch(baseUrl + "/api/users/add", {
+		const result = await fetch(baseUrl + "/api/posts/add", {
 			headers: {
 				"Content-Type": "application/json",
 			},
 			method: "POST",
-      body: JSON.stringify({ userName: userName }),
+      body: JSON.stringify(blog),
 		});
 
 		const json = await result.json();
-
-    console.log (json);
-
 		const { success } = json;
 
 		return success;

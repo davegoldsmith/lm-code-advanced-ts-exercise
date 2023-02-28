@@ -1,5 +1,6 @@
 import { exit } from "./exit/exit";
 import { showMenu } from "./menu/menu";
+import { addBlogPost } from "./menu/options/add_blog_post/add_blog_post";
 import { addUser } from "./menu/options/add_user/add_user";
 import { browsePosts } from "./menu/options/browse_posts/browse_posts";
 import { sendMessage } from "./menu/options/send_message/send_message";
@@ -48,6 +49,11 @@ async function main() {
 				clear();
 				const user = await addUser();
 				state.set(user);
+				break;
+			case states.ADD_POST:
+				clear();
+				const addPost = await addBlogPost();
+				state.set(addPost);
 				break;
 			case states.UNKNOWN:
 				clear();
